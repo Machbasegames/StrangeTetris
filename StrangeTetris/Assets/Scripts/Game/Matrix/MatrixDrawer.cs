@@ -134,7 +134,7 @@ public class MatrixDrawer : MonoBehaviour
         DrawMatrix();
     }
 
-    void MoveMatrix(int _direction) {
+    public void MoveMatrix(int _direction) {
         int[,] _shadowMatrix = new int[matrixSizeY, matrixSizeX];
 
         for(int y = 0; y < matrixSizeY; y++) {
@@ -156,6 +156,12 @@ public class MatrixDrawer : MonoBehaviour
             for(int x = 0; x < matrixSizeX; x++) {
                 shadowMatrix[y, x] = _shadowMatrix[y, x];
             }
+        }
+    }
+
+    public void DownEnd() {
+        while(isGenerate == false) {
+            DownRow();
         }
     }
 
@@ -249,12 +255,6 @@ public class MatrixDrawer : MonoBehaviour
                 FixMatrix();
                 return ;
             }
-        }
-    }
-
-    void DownEnd() {
-        while(isGenerate == false) {
-            DownRow();
         }
     }
 
